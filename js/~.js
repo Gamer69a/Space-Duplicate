@@ -50,9 +50,17 @@ document.addEventListener('click', function (event) {
 });
 
 function showPageFromHash() {
-	let hash = window.location.hash.slice(1);
-	if (hash.startsWith('/')) {
-		hash = hash.slice(1);
+	var hash = window.location.hash || '';
+	// Extract the settings sub-page from hash like #/~#/blank
+	var settingsSubPage = '';
+	if (hash.includes('#/~#/')) {
+		settingsSubPage = hash.split('#/~#/')[1] || '';
+	} else if (hash.includes('#/~#')) {
+		settingsSubPage = hash.split('#/~#')[1] || '';
+	}
+	// Also handle simple hash like #blank (for backwards compat)
+	if (!settingsSubPage && hash.startsWith('#') && !hash.startsWith('#/')) {
+		settingsSubPage = hash.slice(1);
 	}
 
 	const pages = document.querySelectorAll('.scontent');
@@ -62,8 +70,8 @@ function showPageFromHash() {
 		page.style.display = 'none';
 	});
 
-	if (hash) {
-		const targetPage = document.getElementById(hash);
+	if (settingsSubPage) {
+		const targetPage = document.getElementById(settingsSubPage);
 		if (targetPage) {
 			pageToShow = targetPage;
 			pageToShow.style.display = 'block';
@@ -76,7 +84,7 @@ function showPageFromHash() {
 	let foundActive = false;
 
 	settingItems.forEach(item => {
-		if (item.dataset.id === hash) {
+		if (item.dataset.id === settingsSubPage) {
 			shapePositions = {
 				blank: '26.5px',
 				performance: '65px',
@@ -122,7 +130,7 @@ function preventDefaultLinkBehavior() {
 			event.preventDefault();
 			const targetHash = item.dataset.id;
 			if (targetHash) {
-				window.location.hash = targetHash;
+				window.location.hash = '/~#/' + targetHash;
 			}
 		});
 	});

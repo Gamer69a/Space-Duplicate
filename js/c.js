@@ -1,6 +1,11 @@
-// c.js stands for config.js. These are global configs that should be loaded on every page
-
 localforage.setItem('e', 'e');
+
+function getRouteFromHash() {
+	var hash = window.location.hash || '#/';
+	var route = hash.slice(1);
+	if (route.startsWith('/~')) return '/~';
+	return route || '/';
+}
 
 // fancy animation
 function setupObserver(selector) {
@@ -11,6 +16,7 @@ function setupObserver(selector) {
 				if (contentElements.length > 0) {
 					contentElements.forEach((contentElement, index) => {
 						let animationDelay;
+						var pathname = getRouteFromHash();
 
 						if (pathname.includes('~')) {
 							animationDelay = (index * 0.1).toFixed(2);
@@ -63,7 +69,7 @@ function initializeObservers() {
 	setupObserver('.settingsection11');
 }
 
-const pathname = window.location.pathname;
+var pathname = getRouteFromHash();
 
 if (pathname.includes('~')) {
 	const ul = document.querySelector('.sideSnav');

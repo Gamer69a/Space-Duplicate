@@ -1,7 +1,16 @@
 localforage.setItem('e', 'e');
 
+function getRouteFromHash() {
+	var hash = window.location.hash || '#/';
+	var route = hash.slice(1);
+	if (route.startsWith('/~')) return '/~';
+	return route || '/';
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-	if (window.location.pathname.includes('g')) {
+	var pathname = getRouteFromHash();
+
+	if (pathname === '/g') {
 		fetch('json/g.json')
 			.then(response => response.json())
 			.then(data => {
@@ -11,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 				data.forEach(game => {
 					const gameLink = document.createElement('a');
-					gameLink.href = `&.html?q=${encodeURIComponent(game.name)}`;
+					gameLink.href = `#/&?q=${encodeURIComponent(game.name)}`;
 					gameLink.className = 'gameAnchor';
 
 					if (game.categories && game.name) {
@@ -85,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					});
 			})
 			.catch(error => console.error('Error loading game:', error));
-		const scrollToTopBtn = document.querySelector('.scrolltop');
+		const scrollToTopBtn = document.querySelector('.page-games .scrolltop');
 
 		window.addEventListener('scroll', function () {
 			if (window.scrollY === 0) {
@@ -103,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
-	if (window.location.pathname.includes('a')) {
+	if (pathname === '/a') {
 		fetch('json/a.json')
 			.then(response => response.json())
 			.then(data => {
@@ -113,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 				data.forEach(app => {
 					const appLink = document.createElement('a');
-					appLink.href = `&.html?q=${encodeURIComponent(app.name)}`;
+					appLink.href = `#/&?q=${encodeURIComponent(app.name)}`;
 
 					if (app.categories && app.name) {
 						app.categories.forEach(category => {
@@ -168,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			})
 			.catch(error => console.error('Error loading app:', error));
 
-		const scrollToTopBtn = document.querySelector('.scrolltop');
+		const scrollToTopBtn = document.querySelector('.page-apps .scrolltop');
 
 		window.addEventListener('scroll', function () {
 			if (window.scrollY === 0) {
