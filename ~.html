@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>Space - Settings</title>
+		<link rel="icon" type="icon/x-icon" href="assets/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Launch into Space, the next gen proxy." />
+		<meta name="keywords" content="Proxy, Unblocker, Space Unblocker, Space" />
+		<meta property="og:image" content="assets/logo.webp" />
+		<link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+		<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/themes.css" />
+		<link rel="stylesheet" href="css/~.css" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..400,0..1" />
+		<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+	</head>
+
+	<body style="overflow: hidden">
+		<div class="toast">
+			<div class="toast-content">
+				<i class="fas fa-solid fa-check check"></i>
+				<div class="message">
+					<span class="text text-1">Success</span>
+					<span class="text text-2">Your changes has been saved.</span>
+				</div>
+			</div>
+			<i class="fa-solid fa-xmark close"></i>
+			<div class="progress"></div>
+		</div>
+
+		<div class="failtoast">
+			<div class="failtoast-content">
+				<i class="fa fa-solid fa-circle-exclamation fail"></i>
+				<div class="failmessage">
+					<span class="failtext text-1" id="text-1">Failed</span>
+					<span class="failtext text-2" id="text-2">Something went wrong. Please try again.</span>
+				</div>
+			</div>
+			<i class="fa-solid fa-xmark failclose"></i>
+			<div class="failprogress"></div>
+		</div>
+
+		<ul class="navbar">
+			<li style="margin-left: -1px; margin-top: 2px">
+				<a href="index.html"><img class="logo" src="assets/logo.webp" alt="Logo" /></a>
+			</li>
+			<hr style="margin-top: 5px" />
+			<li>
+				<a href="index.html"><span style="margin-top: 0px" class="material-symbols-outlined">cottage</span></a>
+			</li>
+			<li>
+				<a href="g.html"><span class="material-symbols-outlined">joystick</span></a>
+			</li>
+			<li>
+				<a href="a.html"><span class="material-symbols-outlined">apps</span></a>
+			</li>
+			<li>
+				<a href="&.html"><span class="material-symbols-outlined">public</span></a>
+			</li>
+			<hr />
+			<li>
+				<a href="~.html"><span id="navactive" style="margin-top: 0" class="material-symbols-outlined">tune</span></a>
+			</li>
+			<li>
+				<a target="_blank" href="https://discord.gointospace.app">
+					<div style="height: 40px !important; width: 40px !important; margin-top: 10px; margin-bottom: -6px;">
+						<i class="fa-brands fa-discord" style="transform: translateY(-6px)"></i>
+					</div>
+				</a>
+			</li>
+		</ul>
+
+		<div class="header" style="display: inline-flex; width: 900px; backdrop-filter: blur(8px); background-color: rgba(21, 21, 21, 0.1); z-index: -1; box-shadow: 0 0 15px -10px #fff; border-radius: 27px;">
+			<ul class="sideSnav">
+				<h1>Settings</h1>
+				<div id="settingsShape" class="settingsShape"></div>
+				<a href="#blank"><li class="settingItem" data-id="blank"><span class="material-symbols-outlined">ad_group_off</span>Cloaking</li></a>
+				<a href="#performance"><li class="settingItem" data-id="performance"><span class="material-symbols-outlined">speed</span>Performance</li></a>
+				<a href="#themes"><li class="settingItem" data-id="themes"><span class="material-symbols-outlined">palette</span>Themes</li></a>
+				<a href="#proxy"><li class="settingItem" data-id="proxy"><span class="material-symbols-outlined">public</span>Proxy &amp; Browser</li></a>
+				<hr style="margin-bottom: 20px" />
+				<a href="#account"><li class="settingItem" data-id="account"><span class="material-symbols-outlined">account_circle</span>Account</li></a>
+				<a href="#about"><li class="settingItem" data-id="about"><span class="material-symbols-outlined">help</span>About &amp; Statistics</li></a>
+				<hr style="margin-bottom: 20px" />
+				<a href="#news"><li class="settingItem" data-id="news"><span class="material-symbols-outlined">rocket_launch</span>News &amp; Updates</li></a>
+				<a href="#faq"><li class="settingItem" data-id="faq"><span class="material-symbols-outlined">contact_support</span>FAQ</li></a>
+			</ul>
+			<div class="scontent" id="blank" style="display: block; animation: none !important">
+				<h1>Cloaking</h1>
+				<div class="settingsection settingsection1">
+					<h1>About:Blank &amp; Blob Cloaking</h1>
+					<p>About:Blank allows you to hide your tab history, and blockers such as GoGuardian by appearing that you are on a blank tab.</p>
+					<div style="width: 100%; display: flex; justify-content: space-between;">
+						<button class="splitbutton" onclick="alert('About:Blank launching requires a server environment.')">Launch About:Blank</button>
+						<button class="splitbutton" onclick="alert('Blob launching requires a server environment.')">Launch Blob</button>
+					</div>
+				</div>
+				<div class="settingsection settingsection1">
+					<h1>Tab Cloaking</h1>
+					<p>Tab Cloaking cloaks the name of the tab &amp; icon, so your tab stays hidden from sight.</p>
+					<div class="dropdown dropdown-memory" id="tabCloak">
+						<button class="dropdown-button dropdown-toggle">
+							<span class="dropdown-selected">None (default)</span>
+							<span id="arrow" class="material-symbols-outlined">chevron_right</span>
+						</button>
+						<ul class="dropdown-menu">
+							<li class="hidden">None (Default)</li>
+							<li>Desmos</li>
+							<li>Google Classroom</li>
+							<li>Google Drive</li>
+							<li>Khan Academy</li>
+							<li>Quizlet</li>
+							<li>Schoology</li>
+						</ul>
+					</div>
+				</div>
+				<div style="z-index: 998" class="settingsection settingsection1">
+					<h1>Panic Key</h1>
+					<p>Press the selected keybind to go to another site quickly. You can set multiple keybinds by separating them with a comma.</p>
+					<div class="pgroup">
+						<svg stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="picon">
+							<rect x="2" y="2" width="20" height="20" rx="3" ry="3" fill="none" stroke-linejoin="round" stroke-linecap="round"></rect>
+							<line x1="8" y1="16" x2="16" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"></line>
+						</svg>
+						<input class="password panicKey" placeholder="Set a keybind. Backtick by default" />
+					</div>
+					<button style="width: 300px" class="buttonreg panicKeySave">Save</button>
+				</div>
+			</div>
+			<div class="scontent" id="performance">
+				<h1>Performance</h1>
+				<div class="settingsection settingsection4">
+					<h1>Background Particles</h1>
+					<p>This enables the background star particle effects, this is on by default. <strong>Performance Impact</strong>: High on low-end devices</p>
+					<label class="switch"><input class="checkbox particlesYesNo" type="checkbox" /><span class="slider round"></span></label>
+				</div>
+			</div>
+			<div class="scontent" id="themes">
+				<h1>Themes</h1>
+				<div class="settingsection settingsection5">
+					<h1>Default Themes</h1>
+					<p>Here's some themes for you to choose from.</p>
+					<div class="dropdown dropdown-memory" id="themes-dropdown">
+						<button class="dropdown-button dropdown-toggle">
+							<span class="dropdown-selected">Default</span>
+							<span id="arrow" class="material-symbols-outlined">chevron_right</span>
+						</button>
+						<ul class="dropdown-menu">
+							<li class="hidden">Default</li>
+							<li>Aurora</li>
+							<li>Nightmare</li>
+							<li>Midnight</li>
+							<li>Supernova</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="scontent" id="proxy">
+				<h1>Proxy &amp; Browser</h1>
+				<div class="settingsection settingsection6">
+					<h1>Browser</h1>
+					<p>This allows you to change settings about the browser.</p>
+					<hr />
+					<p>Search Engine</p>
+					<div class="dropdown dropdown-memory" id="searchEngine">
+						<button class="dropdown-button dropdown-toggle">
+							<span class="dropdown-selected">DuckDuckGo (default)</span>
+							<span id="arrow" class="material-symbols-outlined">chevron_right</span>
+						</button>
+						<ul class="dropdown-menu">
+							<li class="hidden">DuckDuckGo (default)</li>
+							<li>Bing</li>
+							<li>Google</li>
+							<li>Yahoo!</li>
+						</ul>
+					</div>
+					<p>Enable Utility Bar</p>
+					<label class="switch"><input class="checkbox utilBarYesNo" type="checkbox" /><span class="slider round"></span></label>
+				</div>
+			</div>
+			<div class="scontent" id="account">
+				<h1>Account Settings</h1>
+				<div class="settingsection settingsection9">
+					<h1>Password Protection</h1>
+					<p>Protect your account with a password that way only you can view the site.</p>
+					<label class="switch"><input class="checkbox passwordYesNo" type="checkbox" /><span class="slider round"></span></label>
+				</div>
+				<div class="settingsection settingsection9">
+					<h1>Wipe all Data</h1>
+					<p>Pressing this button will completely wipe all data, making it as if you never used this site.</p>
+					<p><b>Warning: This is a destructive action</b></p>
+					<button class="splitbutton" id="resetButton">Wipe all Data</button>
+				</div>
+			</div>
+			<div class="scontent" id="about">
+				<h1>About &amp; Statistics</h1>
+				<div class="settingsection settingsection8">
+					<h1>Version &amp; Analytics</h1>
+					<p>You are currently on: <span style="background-color: #6b6b6b63; border-radius: 30px; padding: 1px 7px;">v1.1.0</span></p>
+					<p>Server Status: <span style="background-color: #15ff0063; border-radius: 30px; padding: 1px 8px;">Running</span></p>
+				</div>
+			</div>
+			<div class="scontent" id="news">
+				<h1>News &amp; Updates</h1>
+				<div class="settingsection settingsection10">
+					<h1>Space has Updated!<span class="changelog">Version release [v.1.1.0]</span></h1>
+					<p>Added more Fixes! Join our <a href="https://discord.gointospace.app/">Discord</a> to get more updates and changes.</p>
+					<hr />
+					<h1>Updates</h1>
+					<ul><li>Themes</li><li>Fixed Cloaking [Blob &amp; About:Blank]</li></ul>
+				</div>
+			</div>
+			<div class="scontent" id="faq">
+				<h1>Frequently asked questions</h1>
+				<div class="settingsection settingsection11">
+					<h1>Where can I find links?</h1>
+					<p>You can find links by joining our <a href="https://discord.gointospace.app/">Discord</a>.</p>
+				</div>
+				<div class="settingsection settingsection11">
+					<h1>Why do some sites not load/work</h1>
+					<p>There can be a number of reasons a site doesn't load but some of the common ones are listed below.</p>
+					<ul><li>Proxy Service doesn't support the site(s)</li><li>Our servers are either down or experiencing high loads</li><li>Issue with the actual site you are visiting</li></ul>
+				</div>
+			</div>
+		</div>
+		<div style="z-index: -998">
+			<div style="z-index: -998; position: fixed" class="blob"></div>
+			<div style="z-index: -998; position: fixed" class="blobbig"></div>
+			<div style="z-index: -998; position: fixed" class="blobsmall"></div>
+			<div style="z-index: -998; position: fixed" class="blobtop"></div>
+			<div style="z-index: -999" id="particles-js" class=""></div>
+		</div>
+		<script>
+			particlesJS('particles-js', {
+				particles: {
+					number: { value: 86, density: { enable: true, value_area: 800 } },
+					color: { value: '#ffffff' },
+					shape: { type: 'circle', stroke: { width: 0, color: '#000000' }, polygon: { nb_sides: 5 }, image: { src: '', width: 100, height: 100 } },
+					opacity: { value: 1, random: true, anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false } },
+					size: { value: 2, random: true, anim: { enable: false, speed: 40, size_min: 0.1, sync: false } },
+					line_linked: { enable: false, distance: 150, color: '#ffffff', opacity: 0.4, width: 1 },
+					move: { enable: true, speed: 0.5, direction: 'top', random: false, straight: false, out_mode: 'out', bounce: false, attract: { enable: false, rotateX: 318, rotateY: 556 } }
+				},
+				interactivity: { detect_on: 'window', events: { onhover: { enable: false, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true }, modes: { grab: { distance: 400, line_linked: { opacity: 1 } }, bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 }, repulse: { distance: 200, duration: 0.4 }, push: { particles_nb: 10 }, remove: { particles_nb: 10 } } },
+				retina_detect: true
+			});
+		</script>
+		<script src="js/localforage.min.js"></script>
+		<script src="js/c.js"></script>
+		<script src="js/~.js"></script>
+		<script src="js/themes.js"></script>
+	</body>
+</html>
