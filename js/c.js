@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	const cloaks = {
 		'None (Default)': {
 			title: 'Space',
-			favicon: '/assets/favicon.ico'
+			favicon: 'assets/favicon.ico'
 		},
 		'Google Classroom': {
 			title: 'Google Classroom',
