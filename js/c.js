@@ -520,8 +520,7 @@ document.addEventListener('DOMContentLoaded', function () {
 						document.body.style.pointerEvents = '';
 						document.body.style.cursor = '';
 						document.body.style.userSelect = '';
-						localStorage.setItem('isPasswordScreenOpen', 'false');
-						protectionOpen = false;
+					localStorage.setItem('isPasswordScreenOpen', 'false');
 						document.getElementById('text-1').textContent =
 							'Failed';
 						document.getElementById('text-2').textContent =
@@ -574,7 +573,8 @@ document.addEventListener('DOMContentLoaded', function () {
 			clearTimeout(timer2);
 		});
 
-		panicKeyInput.value = localStorage.getItem('panicKeyBind');
+		var panicKeyEl = document.querySelector('.panicKey');
+		if (panicKeyEl) panicKeyEl.value = localStorage.getItem('panicKeyBind');
 	}
 
 	// disabling or enabling particles
